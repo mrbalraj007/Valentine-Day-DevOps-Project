@@ -1,6 +1,14 @@
-version : "3.3"
-services :
-  web :
-     image: "balrajsi/valentine:v1"
-     ports :
-         - "8081:80"
+version: '3'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./finally.html:/usr/share/nginx/html/finally.html
+      - ./yes.html:/usr/share/nginx/html/yes.html
+      - ./nextpage.html:/usr/share/nginx/html/nextpage.html
+      - ./style.css:/usr/share/nginx/html/style.css
+    restart: unless-stopped
