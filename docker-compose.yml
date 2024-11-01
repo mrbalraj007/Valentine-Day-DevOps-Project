@@ -3,4 +3,4 @@ services :
   web :
      image: "balrajsi/valentine:v1"
      ports :
-         - "8000:8000"
+         - "8081:80"
